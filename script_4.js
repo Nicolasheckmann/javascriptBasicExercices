@@ -20,7 +20,29 @@ const entrepreneurs = [
 ];
 
 let myFunction4 = () => {
-  let getBorn70s = () => {
-    <
+
+  console.log("Filtre dans cette liste les entrepreneurs qui sont nés dans les années 70")
+  let bornIn70s = (ent) => {
+    return ent.year > 1969 && ent.year < 1980;
   }
+  console.log(entrepreneurs.filter(bornIn70s))
+
+  console.log("Sors une array qui contient le prénom et le nom des entrepreneurs")
+  let getNames = () => {
+    return entrepreneurs.map( (ent) => { return ent.first + " " + ent.last})
+  }
+  console.log(getNames())
+
+  console.log("Quel âge aurait chaque inventeur aujourd'hui ?")
+  let getTodaysAge = () => {
+    let today = new Date
+    return entrepreneurs.map( (ent) => { return today.getFullYear() - ent.year})
+  }
+  console.log(getTodaysAge())
+
+  console.log("Trie les entrepreneurs par ordre alphabétique du nom de famille.")
+  let sortEntrepreneurs = () => {
+    return [...entrepreneurs].sort((a,b) => { return a.last.localeCompare(b.last)})
+  }
+  console.log(sortEntrepreneurs())
 }
